@@ -11,10 +11,12 @@ module.exports = function(app) {
     })
 
     app.get("/api/burgers/:id", function(req, res) {
-        db.Burger.findById(req.body.id).then(function(burgers) {
+        db.Burger.findById(req.params.id).then(function(burgers) {
             res.json(burgers);
         })
     })
+
+
 
     app.post("/api/burgers", function(req, res) {
         db.Burger.create({
