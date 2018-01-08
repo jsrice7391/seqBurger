@@ -8,6 +8,14 @@ $(document).ready(function() {
 
     })
 
+    $(".delete-burger").on("click", function() {
+        let theData = $(this).data("id");
+        console.log(theData);
+
+    })
+
+
+
     function postTheData(the_data) {
         $.ajax({
             type: "POST",
@@ -17,8 +25,7 @@ $(document).ready(function() {
                 complete: false
             }
         }).then(function() {
-            alert("Success");
-
+            location.reload();
         });
     }
 
