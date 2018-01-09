@@ -5,12 +5,19 @@ console.log(db.Burger)
 module.exports = function(app) {
     app.get("/", function(req, res) {
         db.Burger.findAll({}).then(function(burgers) {
+            // var templateSpec = Handlebars.precompile('{{foo}}');
+
+            // for (let b in burgers) {
+            //     console.log(burgers[b].burger_name);
+            // }
+            console.log(burgers)
             return res.render("index", { burgers });
         })
     })
 
     app.get("/api/burgers/:id", function(req, res) {
         db.Burger.findById(req.params.id).then(function(burgers) {
+
             res.json(burgers);
         })
     });
