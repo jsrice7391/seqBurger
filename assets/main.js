@@ -10,10 +10,21 @@ $(document).ready(function() {
 
     $(".delete-burger").on("click", function() {
         let theData = $(this).data("id");
-        console.log(theData);
+        deleteThis(theData);
 
     })
 
+    function deleteThis(data) {
+        $.ajax({
+            type: "DELETE",
+            url: "/api/burgers",
+            data: {
+                id: data
+            }
+        }).then(function() {
+            console.log("Deleted")
+        })
+    }
 
 
     function postTheData(the_data) {

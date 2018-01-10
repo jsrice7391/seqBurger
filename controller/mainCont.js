@@ -9,15 +9,13 @@ module.exports = function(app) {
 
             // for (let b in burgers) {
             //     console.log(burgers[b].burger_name);
-            // }
-            console.log(burgers)
+
             return res.render("index", { burgers });
         })
     })
 
     app.get("/api/burgers/:id", function(req, res) {
         db.Burger.findById(req.params.id).then(function(burgers) {
-
             res.json(burgers);
         })
     });
@@ -30,9 +28,10 @@ module.exports = function(app) {
 
 
     app.delete("/api/burgers", function(req, res) {
-        db.Burger.delete({
+        console.log(req)
+        db.Burger.destroy({
             where: {
-                id: req.params.id
+                id: parseInt(req.body.id)
             }
         }).then(function(burgers) {
             res.json(burgers)
