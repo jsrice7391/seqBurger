@@ -1,7 +1,4 @@
 const db = require("../models");
-
-console.log(db.Burger)
-
 module.exports = function(app) {
     app.get("/", function(req, res) {
         db.Burger.findAll({}).then(function(burgers) {
@@ -20,11 +17,20 @@ module.exports = function(app) {
         })
     });
 
-    // app.put("/api/burgers", function(req, res) {
-    //     db.Burger.update({
-    //         complete:
-    //     })
-    // });
+    app.put("/api/burgers", function(req, res) {
+
+        db.Burger.update({
+            complete: true
+
+        }, {
+            where: {
+                id: parseInt(req.body.id)
+            }
+        }).then(function(theData) {
+            res.json(theData)
+        })
+    });
+
 
 
     app.delete("/api/burgers", function(req, res) {
@@ -35,6 +41,7 @@ module.exports = function(app) {
             }
         }).then(function(burgers) {
             res.json(burgers)
+
         })
     });
 

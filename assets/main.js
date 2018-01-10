@@ -11,8 +11,29 @@ $(document).ready(function() {
     $(".delete-burger").on("click", function() {
         let theData = $(this).data("id");
         deleteThis(theData);
-
     })
+
+    $(".change-status").on("click", function() {
+        let theData = $(this).data("id");
+        updateThis(theData);
+    })
+
+
+
+    function updateThis(data) {
+        $.ajax({
+            type: "PUT",
+            url: "/api/burgers",
+            data: {
+                id: data
+            }
+        }).then(function() {
+            console.log("Deleted")
+            location.reload();
+
+        })
+    }
+
 
     function deleteThis(data) {
         $.ajax({
@@ -23,6 +44,8 @@ $(document).ready(function() {
             }
         }).then(function() {
             console.log("Deleted")
+            location.reload();
+
         })
     }
 
@@ -39,10 +62,5 @@ $(document).ready(function() {
             location.reload();
         });
     }
-
-
-
-
-
 
 });
