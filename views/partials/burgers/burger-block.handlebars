@@ -1,5 +1,7 @@
 
- <h1>{{dataValues.burger_name}}</h1>
+
+<li>
+ <h3>{{dataValues.burger_name}}</h3>
  
     <br> {{#if complete}}
     <button class="change-status" data-id="{{dataValues.id}}" data-newstatus="{{dataValues.complete}}">
@@ -9,3 +11,5 @@
     <button class="delete-burger btn-primary" data-id="{{dataValues.id}}">DELETE!</button>
     {{/if}} {{!--
     <button class="delete-burger btn-primary" data-id="{{this.id}}">DELETE!</button> --}}
+
+</li>

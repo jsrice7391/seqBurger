@@ -17,6 +17,12 @@ module.exports = function(app) {
         })
     });
 
+    app.get("/api/burgers", function(req, res) {
+        db.Burger.findAll({}).then(function(burgers) {
+            res.json(burgers);
+        })
+    })
+
     app.put("/api/burgers", function(req, res) {
 
         db.Burger.update({

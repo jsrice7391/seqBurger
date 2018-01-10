@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+    $.get("/api/burgers", function(data) {
+        if (!data || !data.length) {
+            $(".noBurger").html("<h3>Welcome to Eat-Da-Burger. Please enter your favorite burger </h3>")
+            $(".burgerNew .burgerEaten").hide();
+        } else {
+            $(".burgerNew .burgerEaten").show();
+        }
+    })
+
     $("#submitBurger").on("click", function(event) {
         event.preventDefault();
         let theData = $("#new_burger").val().trim();
