@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+    var theMain = $("#new_burger")
+    theMain.focus();
+    theMain.select();
+
+
     $.get("/api/burgers", function(data) {
         if (!data || !data.length) {
             $(".noBurger").html("<h3>Welcome to Eat-Da-Burger. Please enter your favorite burger </h3>")
