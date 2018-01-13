@@ -5,9 +5,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const db = require("./models");
 
-
-
-
 var PORT = process.env.PORT || 8000;
 
 
