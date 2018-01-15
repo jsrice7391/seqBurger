@@ -2,11 +2,6 @@ const db = require("../models");
 module.exports = function(app) {
     app.get("/", function(req, res) {
         db.Burger.findAll({}).then(function(burgers) {
-            // var templateSpec = Handlebars.precompile('{{foo}}');
-
-            // for (let b in burgers) {
-            //     console.log(burgers[b].burger_name);
-
             return res.render("index", { burgers });
         })
     })
