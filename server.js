@@ -25,9 +25,12 @@ require("./controller/mainCont.js")(app);
 
 
 // Start the app
-db.sequelize.sync();
+db.sequelize.sync({ force: true })
+    .then(() => app.listen(PORT, function() {
+        console.log("APP is listening on Port: " + PORT);
+    }));
 
 
-app.listen(PORT, function() {
-    console.log("APP is listening on Port: " + PORT);
-});
+// app.listen(PORT, function() {
+//     console.log("APP is listening on Port: " + PORT);
+// });

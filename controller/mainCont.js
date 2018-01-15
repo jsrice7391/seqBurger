@@ -40,7 +40,6 @@ module.exports = function(app) {
 
 
     app.delete("/api/burgers", function(req, res) {
-        console.log(req)
         db.Burger.destroy({
             where: {
                 id: parseInt(req.body.id)
