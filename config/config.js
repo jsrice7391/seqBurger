@@ -21,7 +21,7 @@ module.exports = {
         database: "seq_burger",
         host: "127.0.0.1",
         dialect: "mysql",
-        use_env_variable: JAWSDB_URL
+        use_env_variable: process.env.JAWSDB_URL
     }
 
 }
