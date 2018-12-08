@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [],
   "author": "Justin Rice <jsrice7391@gmail.com>",
@@ -16,7 +18,9 @@
     "mysql": "^2.15.0",
     "mysql2": "^1.5.1",
     "nodemon": "^1.14.11",
-    "sequelize": "^4.29.2"
+    "sequelize": "^4.29.2",
+    "snyk": "^1.116.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "snyk": true
 }
